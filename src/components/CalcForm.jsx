@@ -26,7 +26,7 @@ const CalcForm = (props) => {
                     />
                 )}
                 <Row className="mt-2">
-                    <Col sm={1}>
+                    <Col sm={1} xs={true}>
                         <Button
                             className="btn-info"
                             onClick={props.addNewRow}

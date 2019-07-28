@@ -26,6 +26,11 @@ const CalcFormRow = React.memo((props) => {
     };
 
     const handleSelectChange = (event) => {
+        if (event.target && event.target.value)
+            props.updateRow(index, 'type', event.target.value);
+    };
+
+    const handleTypeChange = (event) => {
         props.updateRow(index, 'type', event);
     };
 
@@ -49,13 +54,27 @@ const CalcFormRow = React.memo((props) => {
                     autoFocus
                 />
             </Col>
-            <Col>
+            <Col className="d-sm-none">
+                <Form.Control as="select"
+                              name={`type-small-${index}`}
+                              value={calcValue.type}
+                              onChange={handleSelectChange}>
+                    {calcTypes.map((calcType) =>
+                        <option
+                            key={calcType.value}
+                            value={calcType.value}>
+                            {calcType.label}
+                        </option>
+                    )}
+                </Form.Control>
+            </Col>
+            <Col className="d-none d-sm-block">
                 <ButtonToolbar>
                     <ToggleButtonGroup
                         type="radio"
-                        name={`type-${index}`}
+                        name={`type-wide-${index}`}
                         value={calcValue.type}
-                        onChange={handleSelectChange}
+                        onChange={handleTypeChange}
                     >
                         {calcTypes.map((calcType) =>
                             <ToggleButton
