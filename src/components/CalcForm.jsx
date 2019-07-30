@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from 'react-bootstrap/Form'
+import {FormattedMessage} from "react-intl";
 
 const CalcForm = (props) => {
 
@@ -39,7 +40,10 @@ const CalcForm = (props) => {
                             type="submit"
                             className="btn-success"
                         >
-                            Obriši
+                            <FormattedMessage
+                                id="components.CalcForm.delete"
+                                defaultMessage="Delete"
+                            />
                         </Button>
                     </Col>
                 </Row>

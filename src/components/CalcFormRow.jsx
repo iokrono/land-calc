@@ -7,15 +7,13 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from 'react-bootstrap/Form'
+import {useFormatMessage} from "@comparaonline/react-intl-hooks";
 
-const calcTypes = Object.keys(calculator.types).map(val => {
-    return {
-        label: calculator.types[val].friendlyName,
-        value: val
-    };
-});
+const calcTypes = Object.keys(calculator.types);
 
 const CalcFormRow = React.memo((props) => {
+
+    const t = useFormatMessage();
 
     const index = props.index;
     const calcValue = props.calcValue;
@@ -47,7 +45,7 @@ const CalcFormRow = React.memo((props) => {
             <Col sm={3}>
                 <Form.Control
                     type="number"
-                    placeholder="Površina"
+                    placeholder={t('components.CalcFormRow.quantity')}
                     name={`quantity-${index}`}
                     value={calcValue.quantity}
                     onChange={handleInputChange}
@@ -61,9 +59,9 @@ const CalcFormRow = React.memo((props) => {
                               onChange={handleSelectChange}>
                     {calcTypes.map((calcType) =>
                         <option
-                            key={calcType.value}
-                            value={calcType.value}>
-                            {calcType.label}
+                            key={calcType}
+                            value={calcType}>
+                            {calculator.friendlyName(calcType, t)}
                         </option>
                     )}
                 </Form.Control>
@@ -78,11 +76,11 @@ const CalcFormRow = React.memo((props) => {
                     >
                         {calcTypes.map((calcType) =>
                             <ToggleButton
-                                value={calcType.value}
+                                value={calcType}
                                 variant="light"
-                                key={calcType.value}
+                                key={calcType}
                             >
-                                {calcType.label}
+                                {calculator.friendlyName(calcType, t)}
                             </ToggleButton>
                         )}
                     </ToggleButtonGroup>

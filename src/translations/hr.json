@@ -1,0 +1,22 @@
+{
+  "components.App.select-language": "Odaberite jezik",
+  "components.Calculator.title": "Kalkulator - Preračunajte površine",
+  "components.CalcForm.delete": "Obriši",
+  "components.CalcFormRow.quantity": "Površina",
+  "components.CurrentResult.result": "Rezultat",
+  "components.ResultHistory.history": "Povijest",
+  "components.ResultHistory.results.select": "Odaberite rezultat",
+  "components.ResultHistory.results.no-history": "Nema povijesti",
+  "service.calculator.m2.name": "m2",
+  "service.calculator.ar.name": "ar",
+  "service.calculator.ha.name": "ha",
+  "service.calculator.km2.name": "km2",
+  "service.calculator.chv.name": "čhv",
+  "service.calculator.jutro.name": "jutro/ral",
+  "service.calculator.m2.long-name": "četvrorni metar",
+  "service.calculator.ar.long-name": "ar",
+  "service.calculator.ha.long-name": "hektar",
+  "service.calculator.km2.long-name": "četvrorni kilometar",
+  "service.calculator.chv.long-name": "četvrorni hvati",
+  "service.calculator.jutro.long-name": "jutro/ral"
+}

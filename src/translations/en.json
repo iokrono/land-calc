@@ -1,0 +1,22 @@
+{
+  "components.App.select-language": "Select language",
+  "components.Calculator.title": "Calculator - Calculate area",
+  "components.CalcForm.delete": "Delete",
+  "components.CalcFormRow.quantity": "Area",
+  "components.CurrentResult.result": "Result",
+  "components.ResultHistory.history": "History",
+  "components.ResultHistory.results.select": "Select result",
+  "components.ResultHistory.results.no-history": "No history",
+  "service.calculator.m2.name": "m2",
+  "service.calculator.ar.name": "ar",
+  "service.calculator.ha.name": "ha",
+  "service.calculator.km2.name": "km2",
+  "service.calculator.chv.name": "čhv",
+  "service.calculator.jutro.name": "jutro/ral",
+  "service.calculator.m2.long-name": "četvrorni metar",
+  "service.calculator.ar.long-name": "ar",
+  "service.calculator.ha.long-name": "hektar",
+  "service.calculator.km2.long-name": "četvrorni kilometar",
+  "service.calculator.chv.long-name": "četvrorni hvati",
+  "service.calculator.jutro.long-name": "jutro/ral"
+}

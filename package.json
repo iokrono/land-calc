@@ -1,13 +1,15 @@
 {
   "name": "land-calc",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
+    "@comparaonline/react-intl-hooks": "0.0.1-alpha.6",
     "bootstrap": "^4.3.1",
     "immutability-helper": "^3.0.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
+    "react-intl": "^2.9.0",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
     "redux": "^4.0.1"
@@ -17,7 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "extract-messages-ux": "NODE_ENV=production babel ./src  --out-file /dev/null",
+    "extract-messages-win": "set NODE_ENV=production&& babel ./src >NUL"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +39,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "babel-plugin-react-intl": "^4.1.3",
     "eslint-plugin-react": "^7.13.0"
   }
 }

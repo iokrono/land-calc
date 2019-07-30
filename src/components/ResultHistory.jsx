@@ -2,13 +2,18 @@ import Container from "react-bootstrap/Container";
 import React from 'react';
 import calculator from "../service/area-calculator";
 import "./ResultHistory.css";
+import {FormattedMessage} from "react-intl";
+import {useFormatMessage} from "@comparaonline/react-intl-hooks";
 
-const formatFormula = (value) => calculator.formatValues(value.calcValues) + ' = ' + calculator.formatValue({
-    value: value.currentResult,
-    type: 'm2'
-});
+const formatFormula = (value, t) => calculator.formatValues(value.calcValues, t) + ' = ' +
+    calculator.formatValue({
+        value: value.currentResult,
+        type: 'm2'
+    }, t);
 
 const ResultHistory = (props) => {
+
+    const t = useFormatMessage();
 
     const handleSelectItem = (index) => {
         props.selectItem(index);
@@ -16,7 +21,12 @@ const ResultHistory = (props) => {
 
     return (
         <Container>
-            <h2>Povijest</h2>
+            <h2>
+                <FormattedMessage
+                    id="components.ResultHistory.history"
+                    defaultMessage="History"
+                />
+            </h2>
             <ul>
                 {
                     props.history.length ?
@@ -25,12 +35,12 @@ const ResultHistory = (props) => {
                                 key={`history-${index}`}
                                 data-toggle="tooltip"
                                 data-html="true"
-                                title="ODaberite rezultat"
+                                title={t('components.ResultHistory.results.select')}
                                 onClick={() => handleSelectItem(index)}
                             >
-                                {formatFormula(value)}
+                                {formatFormula(value, t)}
                             </li>)
-                        ) : 'Nema povijesti'
+                        ) : t('components.ResultHistory.results.no-history')
                 }
             </ul>
         </Container>
