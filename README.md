@@ -2,6 +2,7 @@
 
 Simple exercise project with React Hooks. 
 - Demo URL: http://iokrono.com/
+- Moving development to universal-unit-converter
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
