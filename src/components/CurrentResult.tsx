@@ -88,7 +88,7 @@ const CurrentResult: React.FC<CurrentResultProps> = ({ calcValues, currentResult
                     <Typography variant="caption" color="text.secondary" display="block" sx={{ color: 'inherit', opacity: 0.7 }}>
                       {key.toUpperCase()}
                     </Typography>
-                    <Typography variant="body1" fontWeight="medium">
+                    <Typography variant="body1" fontWeight="medium" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {formatResult(key)}
                     </Typography>
                   </Box>
