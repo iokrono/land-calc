@@ -13,7 +13,7 @@ function PageTracker() {
 
   useEffect(() => {
     if (typeof window.gtag !== 'undefined' && hasConsent()) {
-      window.gtag('config', 'G-D402TTELPP', {
+      window.gtag('config', 'G-G0H6Q3S8Q2', {
         page_path: location.pathname + location.search,
       });
     }

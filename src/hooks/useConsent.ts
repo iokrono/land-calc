@@ -6,7 +6,7 @@ declare global {
   interface Window {
     gtag: (command: string, ...args: unknown[]) => void;
     dataLayer: unknown[];
-    'ga-disable-G-D402TTELPP': boolean;
+    'ga-disable-G-G0H6Q3S8Q2': boolean;
   }
 }
 
