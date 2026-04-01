@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prod-land-calc-cert
+spec:
+  commonName: land-calc.iokrono.com
+  secretName: prod-land-calc-cert-tls
+  dnsNames:
+    - land-calc.iokrono.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - ingress.yaml
+  - cert-manager-issuer.yaml
+
+namespace: land-calc
+
+replicas:
+  - name: land-calc
+    count: 2
+
+labels:
+  - pairs:
+      environment: production
+    includeSelectors: true
+
+images:
+  - name: rg.fr-par.scw.cloud/iokrono/land-calc
+    newTag: 0.5.5

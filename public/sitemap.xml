@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://land-calc.iokrono.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://land-calc.iokrono.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://land-calc.iokrono.com/?lang=hr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://land-calc.iokrono.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://land-calc.iokrono.com/cookie-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://land-calc.iokrono.com/cookie-policy?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://land-calc.iokrono.com/cookie-policy?lang=hr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://land-calc.iokrono.com/cookie-policy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

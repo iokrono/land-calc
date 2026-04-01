@@ -1,74 +1,96 @@
-## Land area calculator with Croatian domestic units
+# Land Area Calculator
 
-Simple exercise project with React Hooks. 
-- Demo URL: http://iokrono.com/land-calc/
-- Moving development to universal-unit-converter
+Land area calculator with Croatian domestic units (jutro, čhv, etc.) and metric units.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Demo URL: https://land-calc.iokrono.com/
+- Supports English and Croatian languages
+
+## Tech Stack
+
+- [Vite](https://vitejs.dev/) - Build tool and dev server
+- [React](https://react.dev/) 18 with TypeScript
+- [Material UI](https://mui.com/) - UI components
+- [React Router](https://reactrouter.com/) v7 - Client-side routing
+- [i18next](https://www.i18next.com/) - Internationalization
+- [Vitest](https://vitest.dev/) - Unit testing
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/          # Page components
+├── service/       # Business logic (area calculations)
+├── types/         # TypeScript type definitions
+├── hooks/         # Custom React hooks
+├── i18n/          # i18n configuration
+├── theme/         # MUI theme configuration
+└── translations/  # Translation files (en, hr)
+```
+
+## Available Units
+
+| Unit | Name | Conversion to m² |
+|------|------|------------------|
+| m² | Square meter | 1 |
+| ar | Are | 100 |
+| ha | Hectare | 10,000 |
+| km² | Square kilometer | 1,000,000 |
+| čhv | Čestvorni hvat | 3.596652 |
+| jutro | Jutro | 5,754.642 |
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm run dev`
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode with hot reload.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `dist` folder.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### `npm run preview`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Preview the production build locally.
 
-### `npm run eject`
+### `npm test`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs unit tests with Vitest in watch mode.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run test:coverage`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Runs tests with coverage report.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run lint`
 
-## Learn More
+Runs ESLint for code quality checks.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm run typecheck`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Runs TypeScript type checking without emitting files.
 
-### Code Splitting
+## Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The app can be deployed using Docker or Kubernetes.
 
-### Analyzing the Bundle Size
+### Docker
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```bash
+docker build -t land-calc .
+docker run -p 8080:80 land-calc
+```
 
-### Making a Progressive Web App
+### Kubernetes
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Helm charts available in `k8s/` directory for cluster deployment.
 
-### Advanced Configuration
+## Features
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Multiple calculation rows
+- Calculation history
+- Conversion between units
+- Responsive design
+- Progressive Web App (PWA) support
+- English and Croatian localization
+- Cookie consent
+- Dark mode support (via MUI theme)
