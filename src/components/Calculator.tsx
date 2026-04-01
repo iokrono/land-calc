@@ -71,7 +71,7 @@ const Calculator: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h1" component="h1" sx={{ mb: 3, textAlign: 'center' }}>
+      <Typography variant="h1" component="h1" sx={{ mb: 3, textAlign: 'center', pt: 6 }}>
         <Trans i18nKey="components.Calculator.title" />
       </Typography>
       <Grid container spacing={3}>
