@@ -1,6 +1,9 @@
 {
   "short_name": "Kalkulator",
   "name": "Kalkulator - Preračunajte površine",
+  "description": "Besplatni online kalkulator za preračunavanje površina između različitih mjernih jedinica.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/logo/logo.svg",
@@ -13,7 +16,8 @@
       "type": "image/svg+xml"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary"
 }
