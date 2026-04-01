@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Link, Container } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
@@ -61,6 +62,17 @@ const Footer: React.FC = () => {
               sx={{ fontSize: '0.875rem' }}
             >
               IOKrono.com
+            </Link>
+            <Link
+              href="https://github.com/iokrono/land-calc"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="text.secondary"
+              underline="hover"
+              sx={{ fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: 0.5 }}
+            >
+              <GitHubIcon sx={{ fontSize: 16 }} />
+              GitHub
             </Link>
           </Box>
         </Box>

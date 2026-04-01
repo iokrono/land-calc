@@ -19,4 +19,4 @@ labels:
 
 images:
   - name: rg.fr-par.scw.cloud/iokrono/land-calc
-    newTag: 0.5.3
+    newTag: 0.5.5
