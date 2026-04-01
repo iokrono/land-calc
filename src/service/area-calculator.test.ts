@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { calcToM2, calcFromM2, types } from './area-calculator';
+import { calcToM2, calcFromM2, types, friendlyName, formatValue, formatValues, defaultType } from './area-calculator';
 import { CalcValue, UnitType } from '../types';
+
+const mockT = (key: string) => key;
 
 describe('area-calculator', () => {
 
@@ -102,6 +104,100 @@ describe('area-calculator', () => {
 
     it('formats jutro with 9 decimal places', () => {
       expect(types.jutro.format(1.123456789)).toBe('1.123456789');
+    });
+  });
+
+  describe('friendlyName', () => {
+    it('returns translated name for valid type', () => {
+      expect(friendlyName('m2', mockT)).toBe('service.calculator.m2.name');
+      expect(friendlyName('ha', mockT)).toBe('service.calculator.ha.name');
+    });
+  });
+
+  describe('formatValue', () => {
+    it('formats value with correct unit', () => {
+      expect(formatValue({ value: 100, type: 'm2' }, mockT)).toBe('100.00 service.calculator.m2.name');
+    });
+
+    it('returns empty string for invalid type', () => {
+      expect(formatValue({ value: 100, type: 'invalid' as UnitType }, mockT)).toBe('');
+    });
+
+    it('formats ha correctly', () => {
+      expect(formatValue({ value: 1.5, type: 'ha' }, mockT)).toBe('1.5000000 service.calculator.ha.name');
+    });
+  });
+
+  describe('formatValues', () => {
+    it('formats single value correctly', () => {
+      const values: CalcValue[] = [{ type: 'm2' as UnitType, quantity: '100' }];
+      expect(formatValues(values, mockT)).toBe('100.00 service.calculator.m2.name');
+    });
+
+    it('formats multiple values with plus separator', () => {
+      const values: CalcValue[] = [
+        { type: 'm2' as UnitType, quantity: '100' },
+        { type: 'ar' as UnitType, quantity: '5' },
+      ];
+      expect(formatValues(values, mockT)).toBe('100.00 service.calculator.m2.name + 5.0000 service.calculator.ar.name');
+    });
+
+    it('returns empty string for empty array', () => {
+      expect(formatValues([], mockT)).toBe('');
+    });
+
+    it('filters out invalid quantities', () => {
+      const values: CalcValue[] = [
+        { type: 'm2' as UnitType, quantity: '100' },
+        { type: 'm2' as UnitType, quantity: '' },
+        { type: 'm2' as UnitType, quantity: 'abc' },
+      ];
+      expect(formatValues(values, mockT)).toBe('100.00 service.calculator.m2.name');
+    });
+
+    it('skips invalid unit types', () => {
+      const values: CalcValue[] = [
+        { type: 'm2' as UnitType, quantity: '100' },
+        { type: 'invalid' as UnitType, quantity: '50' },
+      ];
+      expect(formatValues(values, mockT)).toBe('100.00 service.calculator.m2.name');
+    });
+  });
+
+  describe('defaultType', () => {
+    it('is types.m2', () => {
+      expect(defaultType).toBe(types.m2);
+    });
+  });
+
+  describe('calcFromM2 edge cases', () => {
+    it('handles large values', () => {
+      expect(calcFromM2({ value: 10000000, type: 'm2' })).toBe(10000000);
+      expect(calcFromM2({ value: 10000000, type: 'km2' })).toBe(10);
+    });
+
+    it('handles small values', () => {
+      expect(calcFromM2({ value: 0.000001, type: 'm2' })).toBe(0.000001);
+    });
+  });
+
+  describe('calcToM2 edge cases', () => {
+    it('skips invalid unit types', () => {
+      const values: CalcValue[] = [
+        { type: 'm2' as UnitType, quantity: '100' },
+        { type: 'invalid' as UnitType, quantity: '50' },
+      ];
+      expect(calcToM2(values)).toBe(100);
+    });
+
+    it('handles negative values', () => {
+      const values: CalcValue[] = [{ type: 'm2' as UnitType, quantity: '-50' }];
+      expect(calcToM2(values)).toBe(-50);
+    });
+
+    it('handles decimal quantities', () => {
+      const values: CalcValue[] = [{ type: 'm2' as UnitType, quantity: '10.5' }];
+      expect(calcToM2(values)).toBe(10.5);
     });
   });
 });
